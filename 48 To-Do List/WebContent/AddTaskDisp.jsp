@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
       <label for="taskdate">Due Date</label>
-      <input type="text" class="form-control" id="taskdate" name="taskdate" placeholder="Enter duedate (mm\dd\yy)">
+      <input type="date" class="form-control" id="taskdate" name="taskdate" placeholder="Enter duedate (mm\dd\yy)">
     </div>
    
     <button type="submit" class="btn btn-default">Submit</button>

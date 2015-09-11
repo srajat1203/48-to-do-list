@@ -1,8 +1,8 @@
 package model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -23,6 +23,10 @@ public class Us implements Serializable {
 	private String email;
 
 	private String name;
+
+	//bi-directional many-to-one association to Todolist
+	@OneToMany(mappedBy="us")
+	private List<Todolist> todolists;
 
 	public Us() {
 	}
@@ -49,6 +53,28 @@ public class Us implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Todolist> getTodolists() {
+		return this.todolists;
+	}
+
+	public void setTodolists(List<Todolist> todolists) {
+		this.todolists = todolists;
+	}
+
+	public Todolist addTodolist(Todolist todolist) {
+		getTodolists().add(todolist);
+		todolist.setUs(this);
+
+		return todolist;
+	}
+
+	public Todolist removeTodolist(Todolist todolist) {
+		getTodolists().remove(todolist);
+		todolist.setUs(null);
+
+		return todolist;
 	}
 
 }

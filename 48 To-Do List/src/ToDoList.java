@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Tdlist;
+import model.Todolist;
 import model.Us;
 
 /**
@@ -43,6 +44,7 @@ public class ToDoList extends HttpServlet {
 		Us curuser = (Us) session.getAttribute("curuser");
 		String email = curuser.getEmail();
 		
+		
 		String qString = "select l from Tdlist l where l.useremail = '" + email + "' and l.status = 'no'"; 
 		Utils<Tdlist> dbl = new Utils<Tdlist>();
 		List<Tdlist> tdlist = new ArrayList<Tdlist>(); 
@@ -72,8 +74,34 @@ public class ToDoList extends HttpServlet {
 		}
 		
 		
+		/*
+		String qString = "select t from Todolist t where t.us: " + curuser + "and t.status = 'no'" ;
+		Utils<Todolist> dbl = new Utils<Todolist>();
+		List<Todolist> tdlist = new ArrayList<Todolist>(); 
+		try{
+			tdlist = dbl.getList(qString);
+		}
+		catch(Exception e)
+		{
+			System.out.println("list is empty");
+			empty = 1;
+		}
 		
-
+		if(empty == 0)
+		{
+			int count = 0;
+			status = "";
+			task = "";
+			duedate = "";
+			for(Todolist cur: tdlist)
+			{
+				//System.out.println(cur.getId());
+				status += getStatusView(cur.getId()) +  "<br><br>"; 
+				task += cur.getTask() + "<br><br>";
+				duedate += cur.getDuedate() + "<br><br>";
+			}
+		}
+*/
 		
 		response.setContentType("text/html");
 		request.setAttribute("status", status);

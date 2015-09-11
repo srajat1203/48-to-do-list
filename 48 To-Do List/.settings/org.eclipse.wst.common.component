@@ -2,6 +2,7 @@
     <wb-module deploy-name="48 To-Do List">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Testing"/>
         <property name="context-root" value="48_To-Do_List"/>
         <property name="java-output-path" value="/48 To-Do List/build/classes"/>
     </wb-module>
